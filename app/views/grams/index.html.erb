@@ -9,7 +9,7 @@
         Me
       </div>
       <div>
-        <%= link_to gram.created_at, gram_path(gram) %>
+        <%= link_to time_ago_in_words(gram.created_at), gram_path(gram) %>
         <%= link_to 'X', gram_path(gram), method: :delete, data: { confirm: 'Are you sure you want to delete this Gram?'} %>
       </div>
     </div>
