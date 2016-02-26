@@ -1,6 +1,8 @@
-<div class='new-gram text-center'>
+<% if current_user %>
+  <div class='new-gram text-center'>
     <%= link_to icon('camera'), new_gram_path %>
-</div>
+  </div>
+<% end %>
 
 <% @grams.each do |gram| %>
   <div class='row'>

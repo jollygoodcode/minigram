@@ -1,4 +1,6 @@
 class GramsController < ApplicationController
+  before_action :authenticate_user, only: [:new, :create]
+
   def index
     @grams =
       if current_user
@@ -33,4 +35,10 @@ class GramsController < ApplicationController
 
     redirect_to grams_path
   end
+
+  private
+
+    def authenticate_user
+      redirect_to root_path unless current_user
+    end
 end
