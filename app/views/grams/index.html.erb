@@ -11,7 +11,10 @@
         <div class='panel-heading'>
           <div class='row'>
             <div class='col-sm-6'>
-              Me
+              <%= link_to gram.user.name, gram.user %>
+              <span class='js-user-email'>
+                <%= link_to icon('envelope'), gram.user, remote: true %>
+              </span>
             </div>
             <div class='col-sm-6 text-right'>
               <span class='created_at'><%= link_to time_ago_in_words(gram.created_at), gram_path(gram) %></span>
