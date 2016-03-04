@@ -1,5 +1,5 @@
 class GramsController < ApplicationController
-  before_action :authenticate_user, only: [:new, :create]
+  before_action :authenticate_user, only: [:new, :create, :destroy]
 
   def index
     @grams =
@@ -30,7 +30,7 @@ class GramsController < ApplicationController
   end
 
   def destroy
-    @gram = Gram.find(params[:id])
+    @gram = current_user.grams.find(params[:id])
     @gram.destroy
 
     redirect_to grams_path
